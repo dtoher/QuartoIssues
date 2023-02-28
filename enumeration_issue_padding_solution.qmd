@@ -1,0 +1,29 @@
+---
+title: "Research Writing: UFCEL6-15-M"
+subtitle: "Session 3: Research Argument"
+format: 
+  revealjs:
+    scrollable: true
+    css: olPadding.css
+editor: visual
+lang: "en-GB"
+---
+
+
+## Course structure
+
+1.  Research: Definition and Approach
+2.  Getting Started and Planning Research
+3.  **Research Argument**
+4.  Critical Reading & Writing
+5.  Research Communications & Creating Posters
+6.  From Dissertations to Reports
+
+## Course structure (continued)
+
+7.  Improving your Writing & Literature Review
+8.  Thesis Writing
+9.  Referencing Sources
+10. Creating a Research Abstract
+11. Representing Data in Papers
+12. Finalising the Research Paper & Wrap-Up
