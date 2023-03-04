@@ -16,36 +16,37 @@ format:
           tex: {packages: {'[+]': ['boldsymbol']}}
           };
           </script>
-  pdf:  
+  pdf:
     latex-auto-install: true
     include-in-header:
       - text: |
           \usepackage{unicode-math}
           \usepackage{amsmath}
           \usepackage{upgreek}
-    geometry: 
+    geometry:
       - top=30mm
       - left=30mm
   docx: default
 ---
+```{r}
+#| echo: false
+#| results: asis
+if (knitr::is_html_output()) {
+  cat("\\newcommand{\\bfmu}{\\boldsymbol{\\upmu}}")
+  cat("\\newcommand{\\bfMu}{\\boldsymbol{\\Upmu}}")
+  cat("\\newcommand{\\bfsigma}{\\boldsymbol{\\upsigma}}")
+  cat("\\newcommand{\\bfSigma}{\\boldsymbol{\\Upsigma}}")
+  cat("\\newcommand{\\bfx}{\\mathbf{x}}")
+}
 
-<!-- uncomment following lines when output is html -->
-<!-- comment following lines out when output is not html -->
-\newcommand{\bfmu}{\boldsymbol{\upmu}} 
-\newcommand{\bfMu}{\boldsymbol{\Upmu}}  
-\newcommand{\bfsigma}{\boldsymbol{\upsigma}}  
-\newcommand{\bfSigma}{\boldsymbol{\Upsigma}}
-\newcommand{\bfx}{\mathbf{x}}
-
-
-<!-- if output is html then need to comment out next lines-->
-<!-- 
-\newcommand{\bfmu}{\mbfsansmu}
-\newcommand{\bfMu}{\mbfsansMu}
-\newcommand{\bfsigma}{\mbfsanssigma}
-\newcommand{\bfSigma}{\mbfsansSigma}
-\newcommand{\bfx}{\mbfsansx} 
--->
+if (knitr::is_latex_output()) {
+  cat("\\newcommand{\\bfmu}{\\mbfsansmu}")
+  cat("\\newcommand{\\bfMu}{\\mbfsansMu}")
+  cat("\\newcommand{\\bfsigma}{\\mbfsanssigma}")
+  cat("\\newcommand{\\bfSigma}{\\mbfsansSigma}")
+  cat("\\newcommand{\\bfx}{\\mbfsansx}")
+}
+```
 
 A univariate normal distribution can be described by the following function:
 
@@ -74,5 +75,3 @@ It further follows that a mixture of multivariate normal distributions can be de
 $$f(\bfx)= \sum_{i=1}^{G}\tau_{i}\frac{1}{\left(2\pi\right)^{p/2}(\det(\bfSigma_{i}))^{p/2}}\exp\left\{\frac{-1}{2}(\bfx-\bfmu_{i})^{t}\bfSigma_{i}^{-1}(\bfx-\bfmu_{i})\right\}$$
 
 Because all of the $\bfSigma_{i}$'s must be positive semi-definite, then we can use singular value decomposition to invert them.
-
-
