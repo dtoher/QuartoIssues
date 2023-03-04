@@ -1,0 +1,78 @@
+---
+title: "Formatting Greek letters"
+subtitle: "as vectors and matrices"
+format:
+  html:
+    html-math-method: mathjax
+    include-in-header:
+      - text: |
+          <script>
+          window.MathJax = {
+          loader: {load: ['[tex]/upgreek']},
+          tex: {packages: {'[+]': ['upgreek']}}
+          };
+          window.MathJax = {
+          loader: {load: ['[tex]/boldsymbol']},
+          tex: {packages: {'[+]': ['boldsymbol']}}
+          };
+          </script>
+  pdf:  
+    latex-auto-install: true
+    include-in-header:
+      - text: |
+          \usepackage{unicode-math}
+          \usepackage{amsmath}
+          \usepackage{upgreek}
+    geometry: 
+      - top=30mm
+      - left=30mm
+  docx: default
+---
+
+<!-- uncomment following lines when output is html -->
+<!-- comment following lines out when output is not html -->
+\newcommand{\bfmu}{\boldsymbol{\upmu}} 
+\newcommand{\bfMu}{\boldsymbol{\Upmu}}  
+\newcommand{\bfsigma}{\boldsymbol{\upsigma}}  
+\newcommand{\bfSigma}{\boldsymbol{\Upsigma}}
+\newcommand{\bfx}{\mathbf{x}}
+
+
+<!-- if output is html then need to comment out next lines-->
+<!-- 
+\newcommand{\bfmu}{\mbfsansmu}
+\newcommand{\bfMu}{\mbfsansMu}
+\newcommand{\bfsigma}{\mbfsanssigma}
+\newcommand{\bfSigma}{\mbfsansSigma}
+\newcommand{\bfx}{\mbfsansx} 
+-->
+
+A univariate normal distribution can be described by the following function:
+
+$$f(x)= \frac{1}{\sqrt{\left(2\pi\sigma^2\right)}}\exp\left\{\frac{-1}{2\sigma^2}(x-\mu)^2\right\}$$
+
+A mixture of $G$ univariate normal distributions is a mixture distribution iff $\tau_i\geq 0$ $\forall i\in 1,\ldots,G$ and $\sum_{i=1}^{G}\tau_{i}=1$. $\tau$ is used to represent the mixing proportions to avoid confusion with $p$ the dimensionality and $\pi$ the constant, which typically would be our first choice of letters!
+
+Thus, if we have a mixture, then:
+
+$$f(x)= \sum_{i=1}^{G}\tau_{i}\frac{1}{\sqrt{\left(2\pi\sigma_{i}^2\right)}}\exp\left\{\frac{-1}{2\sigma_{i}^2}(x-\mu_{i})^2\right\}$$
+
+## Moving to a multivariate setting:
+
+A univariate normal distribution can be described by the following function:
+
+$$f(x)= \frac{1}{\sqrt{\left(2\pi\sigma^2\right)}}\exp\left\{\frac{-1}{2\sigma^2}(x-\mu)^2\right\}$$
+
+A multivariate normal distribution can be described by the following function:
+
+$$f(\bfx)= \frac{1}{\left(2\pi\right)^{p/2}(\det(\bfSigma))^{p/2}}\exp\left\{\frac{-1}{2}(\bfx-\bfmu)^{t}\bfSigma^{-1}(\bfx-\bfmu)\right\}$$
+
+Where $\bfx$ and $\bfmu$ are vectors and $\bfSigma$ represent the variance covariance matrix -- this is a square, symmetric semi-definite matrix.
+
+It further follows that a mixture of multivariate normal distributions can be described by the following function:
+
+$$f(\bfx)= \sum_{i=1}^{G}\tau_{i}\frac{1}{\left(2\pi\right)^{p/2}(\det(\bfSigma_{i}))^{p/2}}\exp\left\{\frac{-1}{2}(\bfx-\bfmu_{i})^{t}\bfSigma_{i}^{-1}(\bfx-\bfmu_{i})\right\}$$
+
+Because all of the $\bfSigma_{i}$'s must be positive semi-definite, then we can use singular value decomposition to invert them.
+
+
