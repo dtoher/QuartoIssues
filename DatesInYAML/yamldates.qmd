@@ -1,0 +1,10 @@
+---
+title: "Programming Guide for new R users: be nice to your future self (and others)"
+author: "Deirdre Toher"
+date: "2023-11-29"
+date-modified: "`r format(Sys.time(),format='%B %d %Y at %H:%M')`"
+lang: en-GB
+format: 
+  html: default
+editor: visual
+---
