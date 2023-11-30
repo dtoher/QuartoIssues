@@ -8,3 +8,11 @@ format:
   html: default
 editor: visual
 ---
+
+I just want to be able to have a 
+
+Published: date (just the date, no time)
+Modified: date and time
+
+The format(Sys.time(), format='%B %d %Y at %H:%M') does exactly what I want it to do in R, but not when I try to use it in the yaml. 
+If I try to use date-modified: now as suggested <https://quarto.org/docs/reference/dates> then the time doesn't appear unless you set the date-format option, but that then changes the appearance of the published date.
